@@ -189,9 +189,10 @@ header .navbar-nav {
     width: 6vh;
     height: 6vh;
     border-radius: 50%; /*bulat*/
-    top: 30%; /*memindahkan elemen secara vertika ke bawah sabanyak 50% dari tinggi kontiner induk(tengah secara vertikal)*/
+    top: 50%; /*memindahkan elemen secara vertika ke bawah sabanyak 50% dari tinggi kontiner induk(tengah secara vertikal)*/
     transform: translateY(-50%); /*elemen berada tepat di tengah vertikal kontainer*/
 }
+
 .carousel-control-prev span,
 .carousel-control-next span {
     width: 1.5rem;

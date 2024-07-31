@@ -69,100 +69,44 @@
             <div class="container">
                 <h2 class="mb-5" style="color: #ffff" id="about">We Provide Safe And <br />Reliable Cargo Solutions</h2>
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner text-center">
+                    <div class="carousel-inner text-center" id="service-carousel">
                         <div class="carousel-item active">
                             <div class="cards-wrapper">
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/plane.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
+
+                                <?php
+                                include("koneksi.php");
+                                    $sql = "SELECT image_url FROM carousel_images";
+                                    $hasil = mysqli_query($conn, $sql);
+                                    
+                                    $jmlService = mysqli_num_rows($hasil);
+                                    if ($jmlService > 0){
+                                        while($row = mysqli_fetch_assoc($hasil)){
+                                ?>
+                                    <div class="card" style="width: 18rem">
+                                        <img src="assets/images/<?= $row["image_url"];  ?>" alt=""  />
+                                        <div class="card-body" style="color: #003366">
+                                            <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/car.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/train.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/drone.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
+                                    
+                                <?php
+                                        }
+                                    }
+                                ?>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="cards-wrapper">
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/plane.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/car.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/train.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/drone.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="cards-wrapper">
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/plane.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/car.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/train.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
-                                <div class="card" style="width: 18rem">
-                                    <img src="assets/images/drone.png" class="card-img-top" alt="..." />
-                                    <div class="card-body" style="color: #003366">
-                                        <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
+                    <div class="btn-about">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -517,107 +461,51 @@
             <div class="container">
                 <div class="class-client">
                     <h2 class="partner"><strong>Our Client</strong></h2>
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="cards-wrapper">
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client1.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client2.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client3.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client4.png" class="card-img-top" alt="..." />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="cards-wrapper">
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client5.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client6.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client7.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client8.png" class="card-img-top" alt="..." />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="cards-wrapper">
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client1.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client2.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client3.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client4.png" class="card-img-top" alt="..." />
-                                    </div>
-                                </div>
+                </div>
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="cards-wrapper">
+                                <?php
+                                    include("koneksi.php");
+                                        $sql = "SELECT img FROM client WHERE id BETWEEN 1 AND 4";
+                                        $hasil = mysqli_query($conn, $sql);
+                                        
+                                        $jmlClient = mysqli_num_rows($hasil);
+                                        if ($jmlClient > 0){
+                                            while($row = mysqli_fetch_assoc($hasil)){
+                                    ?>
+                                        <div class="card" style="width: 19rem; height: 8rem">
+                                            <img src="assets/images/<?= $row["img"]; ?>" alt="..." />
+                                        </div>
+                                    <?php
+                                            }
+                                        }
+                                ?>
                             </div>
                         </div>
                     </div>
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="cards-wrapper">
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client5.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client6.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client7.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client8.png" class="card-img-top" alt="..." />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="cards-wrapper">
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client1.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client2.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client3.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client4.png" class="card-img-top" alt="..." />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="cards-wrapper">
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client5.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client6.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client7.png" class="card-img-top" alt="..." />
-                                    </div>
-                                    <div class="card" style="width: 19rem; height: 8rem">
-                                        <img src="assets/images/client8.png" class="card-img-top" alt="..." />
-                                    </div>
-                                </div>
+                </div>
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="cards-wrapper">
+                                <?php
+                                    include("koneksi.php");
+                                        $sql = "SELECT img FROM client WHERE id BETWEEN 5 AND 8";
+                                        $hasil = mysqli_query($conn, $sql);
+                                        
+                                        $jmlClient = mysqli_num_rows($hasil);
+                                        if ($jmlClient > 0){
+                                            while($row = mysqli_fetch_assoc($hasil)){
+                                    ?>
+                                        <div class="card" style="width: 19rem; height: 8rem">
+                                            <img src="assets/images/<?= $row["img"]; ?>" alt="..." />
+                                        </div>
+                                    <?php
+                                            }
+                                        }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -746,6 +634,5 @@
                 }
             });
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>

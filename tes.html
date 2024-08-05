@@ -1,0 +1,96 @@
+<div id="carousel-testimoni" class="carousel slide" data-bs-ride="carousel">
+    <div class="wrapper-carousel-inner-testimoni">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner text-center">
+            <div class="carousel-item active">
+                <div class="wrapper-testimoni mt-5">
+                    <p>
+                        My Logistic's scheduling feature has saved us countless hours. The platformis intuitive and the support team is always ready to help. Our efficiency has greatly improved since we started using this service.
+                        <br />
+                    </p>
+                    <h5>Anne Smith</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="wrapper-testimoni mt-5">
+                    <p>
+                        My Logistic's scheduling feature has saved us countless hours. The platformis intuitive and the support team is always ready to help. Our efficiency has greatly improved since we started using this service.
+                        <br />
+                    </p>
+                    <h5>John Doe</h5>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="wrapper-testimoni mt-5">
+                    <p>
+                        My Logistic's scheduling feature has saved us countless hours. The platformis intuitive and the support team is always ready to help. Our efficiency has greatly improved since we started using this service.
+                        <br />
+                    </p>
+                    <h5>Mark Johnson</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-button-testimoni">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-testimoni" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel-testimoni" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<!-- client -->
+
+<!-- tessssssssssssssss -->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="cards-wrapper">
+                <?php
+                                include("koneksi.php");
+                                $sql = "SELECT img FROM client WHERE id BETWEEN 1 AND 4";
+                                $hasil = mysqli_query($conn, $sql);
+
+                                $jmlClient = mysqli_num_rows($hasil);
+                                if (
+                                    $jmlClient >
+                0 ) { while ($row = mysqli_fetch_assoc($hasil)) { ?>
+                <div class="card" style="width: 19rem; height: 8rem"><img src="assets/images/<?= $row["img"]; ?>" alt="..." /></div>
+                <?php
+                                    }
+                                }
+                                ?>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="cards-wrapper">
+                <?php
+                                include("koneksi.php");
+                                $sql = "SELECT img FROM client WHERE id BETWEEN 5 AND 8";
+                                $hasil = mysqli_query($conn, $sql);
+
+                                $jmlClient = mysqli_num_rows($hasil);
+                                if (
+                                    $jmlClient >
+                0 ) { while ($row = mysqli_fetch_assoc($hasil)) { ?>
+                <div class="card" style="width: 19rem; height: 8rem"><img src="assets/images/<?= $row["img"]; ?>" alt="..." /></div>
+                <?php
+                                    }
+                                }
+                                ?>
+            </div>
+        </div>
+    </div>
+</div>

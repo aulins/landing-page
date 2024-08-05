@@ -72,16 +72,14 @@
                     <div class="carousel-inner text-center" id="service-carousel">
                         <div class="carousel-item active">
                             <div class="cards-wrapper">
-
-                            <?php
+                                <?php
                             include("koneksi.php");
                             $sql = "SELECT image_url FROM carousel_images";
                             $hasil = mysqli_query($conn, $sql);
                             
                             $jmlService = mysqli_num_rows($hasil);
-                            if ($jmlService > 0){
-                                while($row = mysqli_fetch_assoc($hasil)){
-                            ?>
+                            if ($jmlService >
+                                0){ while($row = mysqli_fetch_assoc($hasil)){ ?>
                                 <div class="card" style="width: 18rem">
                                     <!-- <?= $row["image_url"]; //echo $row["id"] ?> -->
                                     <img src="assets/images/<?= $row["image_url"];  ?>" alt="" style="width: 10rem" />
@@ -89,19 +87,17 @@
                                         <strong> <p class="card-text">Some quick example text to build on the card title.</p></strong>
                                     </div>
                                 </div>
-                                
-                            <?php
+
+                                <?php
                                 }
                             }
                             ?>
-                            <?php
+                                <?php
                             $result = mysqli_query($conn, "SELECT image_url FROM carousel_images ");
                             $row = mysqli_fetch_assoc($result);
-                            echo '<img src="'.$row['image_url'].'" alt="Image">';
-                            ?>
+                            echo '<img src="'.$row['image_url'].'" alt="Image">'; ?>
                             </div>
                         </div>
-                        
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
